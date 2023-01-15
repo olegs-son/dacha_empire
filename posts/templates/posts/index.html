@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title> 
+    <link rel="stylesheet" href="{%static 'css\style.css'%}">
+</head>
+<body>
+    <nav id="globalnav">
+        <div class="gn-content">
+            <ul class="gn-list">
+                
+                <li class="gn-item gn-logo">
+                  <div class="gn-hover-button">
+                    <a class="gn-link" href="index.html">
+                      <span class="gn-text">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+                          <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
+                          <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
+                        </svg>
+                      </span>
+                    </a>
+                  </div>
+                </li>
+                <li class="gn-item">
+                  <a class="gn-link" href="index.html">
+                    <span class="gn-text">
+                      Главная
+                    </span>
+                  </a>
+                </li>
+                <li class="gn-item">
+                  <a class="gn-link" href="">
+                    <span class="gn-text">Галерея</span></a>
+                </li>
+                <li class="gn-item">
+                  <a class="gn-link" href="">
+                    <span class="gn-text">
+                      О нас      
+                    </span>
+                  </a>
+                </li>
+                <li class="gn-item gn-accaunt">
+                  <a class="gn-link" href="reg.html">
+                    <img class="gn-accaunt-image" src="https://africaventurelab.com/wp-content/uploads/2017/03/user-experiance-icon.png" alt="">
+                  </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="globalmain">
+      {% if posts_list %}
+        {%for post in posts_list %}
+          <div class="post">
+            <h2>{{post.title}}</h2>
+            <ul>
+              <el>Опубликовал: {{post.published_by}}. Дата публикации: {{post.date_published}}</el>
+              <el>Дата проведения: {{post.date_start}} - {{post.date_end}}</el>
+              <el></el>
+            </ul>
+            <p>{{post.content}}</p>
+          </div>
+        {%endfor%}
+      {% endif %}
+    </main>
+
+    <footer id="globalfooter">
+
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>
